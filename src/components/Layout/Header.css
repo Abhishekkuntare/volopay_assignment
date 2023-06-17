@@ -60,3 +60,24 @@
 }svg{
   cursor: pointer;
 }
+
+.header_input{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+input[type="text"] {
+  margin-top: 40px;
+width: 300px;
+height: 40px;
+outline: none;
+border: 1px solid gray;
+border-radius: 10px;
+padding: 10px;
+}
+
+.header_input>svg{
+  margin-top:40px;
+  margin-left: -30px;
+  
+}

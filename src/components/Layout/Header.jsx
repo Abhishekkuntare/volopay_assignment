@@ -2,11 +2,8 @@ import React, { useState } from "react";
 import "./Header.css";
 import { CiSearch } from "react-icons/ci";
 import { BiFilter } from "react-icons/bi";
-
 import data from "../json/data";
 import Card from "./Card/Card";
-import SearchCom from "../SearchCom/SearchCom";
-import { RxCross2 } from "react-icons/rx";
 
 const Header = () => {
   const [your, setYour] = useState("gray");
@@ -14,7 +11,7 @@ const Header = () => {
   const [blacked, setBlocked] = useState("gray");
   const [items, setItems] = useState(data);
   const [open, setOpen] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
+  const [serchAPIData, setSearchAPIData] = useState(items);
 
   const setColor1 = () => {
     setYour("black");
@@ -41,6 +38,18 @@ const Header = () => {
     });
     setItems(updateData);
   };
+
+  const handleFilter = (e) => {
+    if (e.target.value === "") {
+      setItems(serchAPIData);
+    } else {
+      const filterResult = serchAPIData.filter((item) =>
+        item.name.toLowerCase().includes(e.target.value.toLowerCase())
+      );
+      setItems(filterResult);
+    }
+  };
+
   return (
     <>
       {/* Tabs  */}
@@ -82,21 +91,6 @@ const Header = () => {
 
       {/* Right items  */}
       <div className="header_right">
-        {searchOpen === false ? (
-          <CiSearch
-            size={22}
-            color="gray"
-            onClick={() => setSearchOpen(!searchOpen)}
-          />
-        ) : (
-          <RxCross2
-            size={22}
-            color="gray"
-            onClick={() => setSearchOpen(!searchOpen)}
-          />
-        )}
-        {searchOpen && <SearchCom />}
-
         <div className="header_right_filter">
           <button onClick={() => handleFiler()}>
             <BiFilter />
@@ -105,6 +99,14 @@ const Header = () => {
         </div>
       </div>
 
+      <div className="header_input">
+        <input
+          type="text"
+          placeholder="search..."
+          onInput={(e) => handleFilter(e)}
+        />
+        <CiSearch size={22} color="gray" />
+      </div>
       {/* card  */}
       <div className="card_box">
         {items.map((item, i) => {

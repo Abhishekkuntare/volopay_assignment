@@ -41,7 +41,7 @@ const data = [
   },
   {
     type: "subscription",
-    name: "Mixmax",
+    name: "Amazaon",
     budget_name: "Software subscription",
     owner_id: 1,
     spent: {
@@ -61,7 +61,7 @@ const data = [
   },
   {
     type: "burner",
-    name: "Linkedin",
+    name: "Instagram",
     budget_name: "Software based",
     owner_id: 1,
     spent: {
@@ -81,7 +81,7 @@ const data = [
   },
   {
     type: "subscription",
-    name: "Linkedin",
+    name: "Twitter",
     budget_name: "Software based",
     owner_id: 1,
     spent: {
@@ -100,7 +100,7 @@ const data = [
     status: "active",
   },
   {
-    type: "burner",
+    type: "Lenscart",
     name: "Linkedin",
     budget_name: "Software based",
     owner_id: 1,
@@ -121,7 +121,7 @@ const data = [
   },
   {
     type: "burner",
-    name: "Linkedin",
+    name: "Oracle",
     budget_name: "Software based",
     owner_id: 1,
     spent: {
